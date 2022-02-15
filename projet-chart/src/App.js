@@ -1,10 +1,10 @@
 import './App.css';
-import BarChart from './charts/BarChart';
+import BarChart from './charts/BarChart'
 
 function App() {
   return (
     <div className="App">
-      <BarChart />
+       <BarChart /> 
     </div>
   );
 }
