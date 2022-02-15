@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
@@ -9,32 +9,6 @@ ChartJS.register(
 )
 
 const BarChart = () => {
-
-    const [chart, setChart] = useState([])
-
-    var baseUrl ="https://api.coinranking.com/v2/coins"
-    var proxyUrl ='https://cors-anywhere.herokuapp.com/corsdemo'
-    var apiKey ="coinranking70234f353495f0fab29a2d6362759f74861c7223356111fd"
-
-    useEffect(() => {
-        const fetchCoins = async () => {
-            await fetch (`${proxyUrl}${baseUrl}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-access-token': `${apiKey}`,
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }).then((response) => {
-                response.json().then((json) =>{
-                    console.log(json)
-                })
-            }).catch(error =>{
-                console.log(error);
-            })
-        }
-        fetchCoins()
-    }, [])
 
 
     const data= {
