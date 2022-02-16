@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Legend,  } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
 ChartJS.register(
     CategoryScale,
     LinearScale,
-    BarElement
+    BarElement,
+    Legend
 )
 
 const BarChart = () => {
@@ -38,11 +39,11 @@ const BarChart = () => {
         fetchCoins()
     }, [])
 
-
+    
     const data= {
         labels: chart?.coins?.map(x => x.name),
         datasets: [{
-            label: `${chart?.coins?.lenght} Coins Available`,
+            label: 'Mon premier test' ,
             data: chart?.coins?.map(x => x.price),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -67,6 +68,7 @@ const BarChart = () => {
 
     const options = {
         maintainAspectRadio: false,
+        //indexAxis: 'y', //pour horizontal
         scales: {
             y: {
                 beginAtZero: true
@@ -83,7 +85,7 @@ const BarChart = () => {
     <div>
         <Bar 
             data={data}
-            height={100}
+            height={150}
             options={options}
 
         />
